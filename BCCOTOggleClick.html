@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Background Color Change On Toggle Click</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=width-device, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="BCCOTOggleClick.css">
+	<script type="text/javascript" src="jQuery.min.js"></script>
+</head>
+<body>
+
+	<div class="wrapper">
+		<input type="checkbox" name="toggle" class="custom-toggle">
+	</div>
+
+	<script type="text/javascript">
+		
+		$(".custom-toggle").each(function (i){
+			var classes = $(this).attr("class"),
+			id = $(this).attr("id"),
+			name = $(this).attr("name");
+
+			$(this).wrap('<div class="custom-toggle" id="' + name + '"></div');
+			$(this).after('<label for="custom-toggle-' + i + '"></label>');
+			$(this).attr("id", "custom-toggle-" + i);
+			$(this).attr("name", name);
+
+		});
+
+		$(".custom-toggle input").change(function (){
+				$("body").toggleClass("green");
+		});
+	</script>
+
+</body>
+</html>
+
+<!--HTML & jQuery is completed!-->
